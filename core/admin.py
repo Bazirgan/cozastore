@@ -1,7 +1,6 @@
 from django.contrib import admin
 from core.models import Category, Product, Color
 
-# Register your models here.
 
 admin.site.register(Category)
 admin.site.register(Color)
@@ -21,3 +20,4 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
     
 admin.site.register(Product,ProductAdmin)
+
