@@ -53,3 +53,35 @@ class Product(BaseModel):
     class Meta:
         verbose_name= 'Product'
         verbose_name_plural= 'Products'
+    
+    def __str__(self) :
+        return self.name     
+        
+
+class Blog(BaseModel):
+    title = models.CharField(max_length = 100)
+    description = models.TextField()
+    image = models.ImageField(upload_to='media/blog/')
+    
+    class Meta:
+        verbose_name = 'Blog'
+        verbose_name_plural = 'Blogs'
+    
+    def __str__(self) :
+        return self.title    
+    
+
+class ContactUs(BaseModel):
+    adress = models.CharField(max_length = 100)
+    phone = models.CharField(max_length = 50)
+    mail = models.CharField(max_length = 50)
+    
+    class Meta:
+        verbose_name = 'Contact Us'
+        verbose_name_plural = 'Contact Us'
+        
+    def __str__(self) :
+        return self.name    
+    
+    
+    
