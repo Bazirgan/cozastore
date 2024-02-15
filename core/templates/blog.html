@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{%block title%}
+{{title}}
+{%endblock%}
+
 {% block content %}
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -91,7 +95,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({% static 'images/bg-02.jpg' %});">
 		<h2 class="ltext-105 cl0 txt-center">
-			Blog
+			Blog {{blog_count}}
 		</h2>
 	</section>	
 
@@ -112,11 +116,11 @@
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
 									<span class="ltext-107 cl2 txt-center">
-										18
+										{{blog.created_at|date:"d"}}
 									</span>
 
 									<span class="stext-109 cl3 txt-center">
-										Jan 2018
+										{{blog.created_at|date:"F Y"}}
 									</span>
 								</div>
 							</a>

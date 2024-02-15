@@ -81,7 +81,7 @@ class ContactUs(BaseModel):
         verbose_name_plural = 'Contact Us'
         
     def __str__(self) :
-        return self.name    
+        return self.adress   
     
     
     
