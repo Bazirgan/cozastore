@@ -59,6 +59,7 @@ class Product(BaseModel):
         
 
 class Blog(BaseModel):
+    slug = models.SlugField(max_length = 100)
     title = models.CharField(max_length = 100)
     description = models.TextField()
     image = models.ImageField(upload_to='media/blog/')
@@ -70,15 +71,22 @@ class Blog(BaseModel):
     def __str__(self) :
         return self.title    
     
+    def save(self, *args, **kwargs):
+        from core.utils.replace_letter import replace_letter
+        
+        if not self.slug or self.slug != self.title.lower():
+            self.slug = self.title.lower()
+            
+        return super(Blog, self).save(*args, **kwargs)
 
-class ContactUs(BaseModel):
+class Contact(BaseModel):
     adress = models.CharField(max_length = 100)
     phone = models.CharField(max_length = 50)
-    mail = models.CharField(max_length = 50)
+    mail = models.EmailField(max_length = 50)
     
     class Meta:
-        verbose_name = 'Contact Us'
-        verbose_name_plural = 'Contact Us'
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
         
     def __str__(self) :
         return self.adress   

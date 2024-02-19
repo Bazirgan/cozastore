@@ -1,10 +1,10 @@
 from django.contrib import admin
-from core.models import Category, Product, Color, Blog, ContactUs
+from core.models import Category, Product, Color, Blog, Contact
 
 
 admin.site.register(Category)
 admin.site.register(Color)
-admin.site.register(ContactUs)
+admin.site.register(Contact)
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'category', 'size')
@@ -24,7 +24,7 @@ admin.site.register(Product,ProductAdmin)
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', )
+    list_display = ('title', 'created_at', 'slug')
     search_fields = ('title', 'description',)
     last_filter = ('created_at',)
     fields = ('title', 'description', 'is_active', 'image' )

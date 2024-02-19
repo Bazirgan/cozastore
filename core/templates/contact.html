@@ -125,33 +125,27 @@
 					</form>
 				</div>
 				<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-					{% comment %} {% for contact in contact_us %} {% endcomment %}
 					<div class="flex-w w-full p-b-42">
 						<span class="fs-18 cl5 txt-center size-211">
 							<span class="lnr lnr-map-marker"></span>
 						</span>
-						{%for contact in contact_us %}
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
 								Address
 							</span>
-
-							<p class="stext-115 cl6 size-213 p-t-18">
+							<p class="stext-115 cl6 size-213 p-t-18" >
 								{{contact.adress}}
-							</p>
-						</div>
-						{% endfor %}
+							</p>	
+						</div>		
 					</div>
 					<div class="flex-w w-full p-b-42">
 						<span class="fs-18 cl5 txt-center size-211">
 							<span class="lnr lnr-phone-handset"></span>
 						</span>
-
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
 								Lets Talk
 							</span>
-
 							<p class="stext-115 cl1 size-213 p-t-18">
 								{{contact.phone}}
 							</p>
@@ -159,18 +153,15 @@
 						<span class="fs-18 cl5 txt-center size-211">
 							<span class="lnr lnr-envelope"></span>
 						</span>
-
 						<div class="size-212 p-t-2">
 							<span class="mtext-110 cl2">
 								Sale Support
 							</span>
-
 							<p class="stext-115 cl1 size-213 p-t-18">
 								{{contact.mail}}
 							</p>
 						</div>
 					</div> 
-					 {% comment %} {% endfor %} {% endcomment %}
 				</div>
 			</div>
 		</div>
