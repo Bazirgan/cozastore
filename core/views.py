@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from core.models import Blog, Contact
+from core.forms import ContactForm
 
 # Create your views here.
 
@@ -30,7 +31,7 @@ def blog(request):
     return render(request, 'blog.html',context=context)
  
 def blog_details(request, blog_slug):
-    blog = Blog.objects.get(id=blog_slug)
+    blog = Blog.objects.get(slug=blog_slug)
     context = {
         'title': blog.title,
         'blog': blog
@@ -44,11 +45,16 @@ def about(request):
     return render(request, 'about.html',context=context)
 
 def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'contact.html', context={'contact_form': ContactForm()})
     contacts = Contact.objects.filter(is_active=True).order_by('-created_at') 
     context = {
+        'contact_form': ContactForm(),
         'title': 'Contact page',
-        'contact': contacts.
-        first()
+        'contact': contacts.first()
     }
     return render(request, 'contact.html',context=context)
 
