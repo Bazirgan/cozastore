@@ -115,5 +115,4 @@ class Setting(BaseModel):
    instagram = models.URLField(null=True,blank=True)
    pinterest = models.URLField(null=True,blank=True)
    logo = models.ImageField(upload_to='media/logo/')
-   blog_bg_image = models.ImageField(upload_to='media/blog/')
    blog_title = models.CharField(max_length = 100,null=True,blank=True)
