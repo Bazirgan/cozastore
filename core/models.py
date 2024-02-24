@@ -48,7 +48,8 @@ class Product(BaseModel):
     color = models.ManyToManyField(Color)
     size = models.CharField(max_length=50, choices=SIZE, default='M')
     like = models.IntegerField(default=0)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)    
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)  
+    image = models.ImageField(upload_to='media/shop/')  
 
     class Meta:
         verbose_name= 'Product'
@@ -105,5 +106,14 @@ class ContactMail(BaseModel):
         return self.email
     
     
-    
-    
+class Setting(BaseModel):
+   title = models.CharField(max_length=50,null=True,blank=True)
+   adress = models.CharField(max_length = 100)
+   phone = models.CharField(max_length = 50)
+   mail = models.EmailField(null=True,blank=True)
+   facebook = models.URLField(null=True,blank=True)
+   instagram = models.URLField(null=True,blank=True)
+   pinterest = models.URLField(null=True,blank=True)
+   logo = models.ImageField(upload_to='media/logo/')
+   blog_bg_image = models.ImageField(upload_to='media/blog/')
+   blog_title = models.CharField(max_length = 100,null=True,blank=True)

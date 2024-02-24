@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.models import Blog, Contact
+from core.models import Blog, Contact, Product, Setting
 from core.forms import ContactForm
 
 # Create your views here.
@@ -11,7 +11,8 @@ def index(request):
 
 def product(request):
     context = {
-        'title':'product page',
+        'products':Product.objects.all(),
+        'title':'product page'
     }
     return render(request, 'product.html', context=context)
 
@@ -24,7 +25,7 @@ def shopingcart(request):
 def blog(request):
     blogs = Blog.objects.filter(is_active=True).order_by('-created_at')
     context = {
-        'title':'Blog page',
+        'title':Setting.objects.get(id=1).blog_title,
         'blogs': blogs, 
         'blog_count': blogs.count()
     }

@@ -1,12 +1,13 @@
 from django.contrib import admin
 from core.models import (
-    Category, Product, Color, Blog, Contact, ContactMail
+    Category, Product, Color, Blog, Contact, ContactMail, Setting
 )
 
 admin.site.register(Category)
 admin.site.register(Color)
 admin.site.register(Contact)
 admin.site.register(ContactMail)
+admin.site.register(Setting)
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'category', 'size')
@@ -14,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ('like',)
     fieldsets = (
         ('Main Information', {
-            'fields': ('name', 'price', 'category', 'color', 'size')
+            'fields': ('name', 'price', 'category', 'color', 'size','image')
         }),
         ('Main Information', {
             'fields': ('like', )
