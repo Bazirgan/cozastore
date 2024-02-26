@@ -107,7 +107,7 @@ class ContactMail(BaseModel):
     
     
 class Setting(BaseModel):
-   title = models.CharField(max_length=50,null=True,blank=True)
+   name = models.CharField(max_length=50,null=True,blank=True)
    adress = models.CharField(max_length = 100)
    phone = models.CharField(max_length = 50)
    mail = models.EmailField(null=True,blank=True)
@@ -115,4 +115,4 @@ class Setting(BaseModel):
    instagram = models.URLField(null=True,blank=True)
    pinterest = models.URLField(null=True,blank=True)
    logo = models.ImageField(upload_to='media/logo/')
-   blog_title = models.CharField(max_length = 100,null=True,blank=True)
+   blog_title = models.CharField(max_length = 100)

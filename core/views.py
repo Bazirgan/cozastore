@@ -25,7 +25,7 @@ def shopingcart(request):
 def blog(request):
     blogs = Blog.objects.filter(is_active=True).order_by('-created_at')
     context = {
-        'title':Setting.objects.get(id=1).blog_title,
+        'title': Setting.objects.first().blog_title,
         'blogs': blogs, 
         'blog_count': blogs.count()
     }
