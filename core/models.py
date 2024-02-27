@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.utils.text import Truncator
+
 SIZE = (
     ('XS', 'Extra Small'),
     ('S', 'Small'),
@@ -72,6 +74,11 @@ class Blog(BaseModel):
     def __str__(self) :
         return self.title    
     
+    def truncated_title(self):
+        title_words= self.title.split(' ')
+        truncated_title = ' '.join(title_words)
+        return Truncator(truncated_title).chars(100)
+        
     def save(self, *args, **kwargs):
         
         

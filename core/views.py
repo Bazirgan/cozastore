@@ -51,6 +51,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             return render(request, 'contact.html', context={'contact_form': ContactForm()})
+        
     contacts = Contact.objects.filter(is_active=True).order_by('-created_at') 
     context = {
         'contact_form': ContactForm(),
