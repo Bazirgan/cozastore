@@ -1,4 +1,6 @@
 from django.contrib import admin
+from modeltranslation.translator import translator, TranslationOptions
+from modeltranslation.admin import TranslationAdmin
 from core.models import (
     Category, Product, Color, Blog, Contact, ContactMail, Setting
 )
@@ -9,7 +11,7 @@ admin.site.register(Contact)
 admin.site.register(ContactMail)
 admin.site.register(Setting)
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslationAdmin):
     list_display = ('name', 'price', 'category', 'size')
     search_fields = ('name', 'price', 'category__name', 'color__name')
     readonly_fields = ('like',)
@@ -26,7 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
 admin.site.register(Product,ProductAdmin)
 
 
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(TranslationAdmin):
     list_display = ('title', 'created_at')
     search_fields = ('title', 'description',)
     last_filter = ('created_at',)

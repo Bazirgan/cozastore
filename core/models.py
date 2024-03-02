@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import gettext as _
 from django.utils.text import Truncator
 
 SIZE = (
@@ -26,8 +26,8 @@ class Category (BaseModel):
     name = models.CharField(max_length=50)
     
     class Meta:
-        verbose_name= 'Category'
-        verbose_name_plural= 'Categories'
+        verbose_name= _("Category")
+        verbose_name_plural= _("Catagories")
         
     def __str__(self) :
         return self.name
@@ -37,8 +37,8 @@ class Color(BaseModel):
     name=models.CharField(max_length=50)
     
     class Meta:
-        verbose_name= 'Color'
-        verbose_name_plural= 'Colors'
+        verbose_name= _("Color")
+        verbose_name_plural= _("Colors")
         
     def __str__(self) :
         return self.name    
@@ -54,8 +54,8 @@ class Product(BaseModel):
     image = models.ImageField(upload_to='media/shop/')  
 
     class Meta:
-        verbose_name= 'Product'
-        verbose_name_plural= 'Products'
+        verbose_name= _("Protuct")
+        verbose_name_plural= _("Products")
     
     def __str__(self) :
         return self.name     
@@ -68,8 +68,8 @@ class Blog(BaseModel):
     image = models.ImageField(upload_to='media/blog/')
     
     class Meta:
-        verbose_name = 'Blog'
-        verbose_name_plural = 'Blogs'
+        verbose_name = _("Blog")
+        verbose_name_plural = _("Blogs")
     
     def __str__(self) :
         return self.title    
@@ -95,8 +95,8 @@ class Contact(BaseModel):
     mail = models.EmailField(max_length = 50)
     
     class Meta:
-        verbose_name = 'Contact'
-        verbose_name_plural = 'Contacts'
+        verbose_name = _("Contact")
+        verbose_name_plural = _("Contacts")
         
     def __str__(self) :
         return self.adress   
@@ -106,8 +106,8 @@ class ContactMail(BaseModel):
     message = models.TextField()
     
     class Meta:
-        verbose_name = 'ContactMail'
-        verbose_name_plural = 'ContactMails'
+        verbose_name = _("ContactMail")
+        verbose_name_plural = _("ContactMails")
         
     def __str__(self) :
         return self.email

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load i18n %}
 {% block content %}
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -9,7 +9,7 @@
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Your Cart
+					{% trans 'Your Cart' %}
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -26,7 +26,7 @@
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
+								{% trans 'White Shirt Pleat' %}
 							</a>
 
 							<span class="header-cart-item-info">
@@ -42,7 +42,7 @@
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
+								{% trans 'Converse All Star' %}
 							</a>
 
 							<span class="header-cart-item-info">
@@ -58,7 +58,7 @@
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
+								{% trans 'Nixon Porter Leather'%}
 							</a>
 
 							<span class="header-cart-item-info">

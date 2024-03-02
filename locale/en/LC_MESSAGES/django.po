@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-02 00:30+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Cozastore\settings.py:135
+msgid "German"
+msgstr ""
+
+#: .\Cozastore\settings.py:136
+msgid "English"
+msgstr "English"
+
+#: .\Cozastore\settings.py:137
+msgid "Azerbaijani"
+msgstr "Azerbaijani"
+
+#: .\core\models.py:29
+msgid "Category"
+msgstr "Category"
+
+#: .\core\models.py:30
+msgid "Catagories"
+msgstr "Catagories"
+
+#: .\core\models.py:40
+msgid "Color"
+msgstr "Color"
+
+#: .\core\models.py:41
+msgid "Colors"
+msgstr "Colors"
+
+#: .\core\models.py:57
+msgid "Protuct"
+msgstr "Protuct"
+
+#: .\core\models.py:58
+msgid "Products"
+msgstr "Products"
+
+#: .\core\models.py:71
+msgid "Blog"
+msgstr "Blog"
+
+#: .\core\models.py:72
+msgid "Blogs"
+msgstr "Blogs"
+
+#: .\core\models.py:98
+msgid "Contact"
+msgstr "Contact"
+
+#: .\core\models.py:99
+msgid "Contacts"
+msgstr "Contacts"
+
+#: .\core\models.py:109
+msgid "ContactMail"
+msgstr "ContactMail"
+
+#: .\core\models.py:110
+msgid "ContactMails"
+msgstr "ContactMails"
+
+#: .\core\templates\index.html:12
+msgid "Your Cart"
+msgstr "Your Cart"
+
+#: .\core\templates\index.html:29
+msgid "White Shirt Pleat"
+msgstr "White Shirt Pleat"
+
+#: .\core\templates\index.html:45
+msgid "Converse All Star"
+msgstr "Converse All Star"
+
+#: .\core\templates\index.html:61
+msgid "Nixon Porter Leather"
+msgstr "Nixon Porter Leather"
