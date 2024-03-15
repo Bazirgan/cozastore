@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from core.urls import urlpatterns as core_urls
+from user.urls import urlpatterns as user_urls
+from core.api.urls import urlpatterns as core_api_urls
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.views.i18n import set_language
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +32,11 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('',include(core_urls)),
+    path('user/',include(user_urls)),
     path('set_language/', set_language, name='set_language'),
     path('rosetta/',include('rosetta.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(core_api_urls)),
 )
 
 

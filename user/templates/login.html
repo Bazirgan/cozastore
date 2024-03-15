@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+{% block title %}Registration Form{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form method="post" action="" enctype="multipart/form-data" class="registration-form">
+                {% csrf_token %}
+                {{ error }}
+                <h2 class="form-title">Login Form</h2>
+                <div class="form-fields">
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="btn btn-success" style="margin-bottom: 10px; display: block;">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.models import Blog, Contact, Product, Setting
+from core.models import  Blog, Contact, Product, Setting
 from core.forms import ContactForm
 
 # Create your views here.
@@ -59,5 +59,4 @@ def contact(request):
         'contact': contacts.first()
     }
     return render(request, 'contact.html',context=context)
-
 

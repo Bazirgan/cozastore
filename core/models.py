@@ -62,7 +62,7 @@ class Product(BaseModel):
         
 
 class Blog(BaseModel):
-    slug = models.SlugField(max_length = 100, null = True, blank = True, unique = True, )
+    slug = models.SlugField(max_length = 100, null = True, blank = True )
     title = models.CharField(max_length = 100)
     description = models.TextField()
     image = models.ImageField(upload_to='media/blog/')
@@ -123,3 +123,5 @@ class Setting(BaseModel):
    pinterest = models.URLField(null=True,blank=True)
    logo = models.ImageField(upload_to='media/logo/')
    blog_title = models.CharField(max_length = 100)
+   
+

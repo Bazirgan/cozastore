@@ -32,15 +32,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'modeltranslation',
+    'modeltranslation', #lang
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # my apps
     'core',
+    'user',
+    
+    # 3 rd party
     'rosetta',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +135,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'user.MyUser'
 
 gettext = lambda s: s
 LANGUAGES = (

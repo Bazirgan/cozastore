@@ -17,15 +17,18 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="{% url 'login' %}" class="flex-c-m trans-04 p-lr-25">
 							My Account
+						</a>
+						<a href="{% url 'register' %}" class="flex-c-m trans-04 p-lr-25">
+							Sign Up
 						</a>
 
 						<div class="language-selector">
 							<form id="languageForm" action="{% url 'set_language' %}" method="post">
 								{% csrf_token %}
 								<input type="hidden" name="next" value="{{ request.path }}">
-								<select name="language" onchange="this.form.submit()">
+								<select name="language" onchange="this.form.submit()" class="form-control">
 									{% get_current_language as LANGUAGE_CODE %}
 									{% get_available_languages as LANGUAGES %}
 									{% get_language_info_list for LANGUAGES as languages %}
@@ -37,6 +40,7 @@
 								</select>
 							</form>
 						</div>
+						
 						
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							USD

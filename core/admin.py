@@ -3,6 +3,7 @@ from modeltranslation.translator import translator, TranslationOptions
 from modeltranslation.admin import TranslationAdmin
 from core.models import (
     Category, Product, Color, Blog, Contact, ContactMail, Setting
+    
 )
 
 admin.site.register(Category)
@@ -10,6 +11,7 @@ admin.site.register(Color)
 admin.site.register(Contact)
 admin.site.register(ContactMail)
 admin.site.register(Setting)
+
 
 class ProductAdmin(TranslationAdmin):
     list_display = ('name', 'price', 'category', 'size')
