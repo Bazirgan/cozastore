@@ -9,12 +9,38 @@ def index(request):
     
     return render(request, 'index.html')
 
+
 def product(request):
+    from django.db.models import Q  
+    products = Product.objects.filter(is_active=True).order_by('-created_at')
+    
+    start_date = None
+    end_date = None
+    
+    if request.method == 'POST':
+        user_input = request.POST.get('product_search')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        if user_input:
+            products = products.filter(name__icontains=user_input)
+        if start_date and end_date:
+            products = products.filter(
+                Q(created_at__date__gte=start_date),
+                Q(created_at__date__lte=end_date)
+            )
+    if len(products) == 0:
+        no_result = 'Product tapılmadı'
+    else:
+        no_result = None
     context = {
-        'products':Product.objects.all(),
-        'title':'product page'
+        'products': products,
+        'title': 'Product Page',
+        'no_result': no_result,
+        'start_date': start_date,
+        'end_date': end_date,
     }
     return render(request, 'product.html', context=context)
+
 
 def shopingcart(request):
     context = {
@@ -60,3 +86,23 @@ def contact(request):
     }
     return render(request, 'contact.html',context=context)
 
+
+def search(request):
+    blogs = Blog()
+    products = Product()
+    if request.method == 'POST':
+        user_input = request.POST.get('search')
+        print('user_input: ', user_input)
+        blogs = Blog.objects.filter(title__icontains=user_input)
+        products = Product.objects.filter(name__icontains=user_input)
+        
+        
+        context = {
+            'title': 'search',
+            'blogs': blogs,
+            'products': products, 
+        }
+        
+        return render(request, 'search.html', context=context)
+    
+    return render (request,'search.html')

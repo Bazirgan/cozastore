@@ -37,6 +37,7 @@ urlpatterns += i18n_patterns(
     path('rosetta/',include('rosetta.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(core_api_urls)),
+    
 )
 
 

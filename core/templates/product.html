@@ -6,6 +6,7 @@
 {%endblock%}
 
 {% block content %}
+
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
@@ -94,33 +95,33 @@
 	
 	<!-- Product -->
 	<div class="bg0 m-t-23 p-b-140">
-		<div class="container">
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-						All Products
-					</button>
+    <div class="container">
+        <div class="flex-w flex-sb-m p-b-52">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-80">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                    All Products
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-						Women
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                    Women
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-						Men
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+                    Men
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-						Bag
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+                    Bag
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-						Shoes
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                    Shoes
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Watches
-					</button>
-				</div>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                    Watches
+                </button>
+            </div>
 
 				<div class="flex-w flex-c-m m-tb-10">
 					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
@@ -135,18 +136,32 @@
 						Search
 					</div>
 				</div>
-				
+
 				<!-- Search product -->
+				
+
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+					<form action="{% url 'product' %}" method="post" class="bor8 dis-flex p-l-15">
+						{% csrf_token %}
+						{% comment %} start date {% endcomment %}
+						<input name="start_date" type="date" class="form-control" style="width: 180px;" placeholder="Başlanğıc tarixi" value="{{ start_date|default_if_none:'' }}">
+						{% comment %} end date {% endcomment %}
+						<input name="end_date" type="date" class="form-control" style="width: 180px;" placeholder="Bitiş tarixi" value="{{ end_date|default_if_none:'' }}">
+						{% comment %} search {% endcomment %}
+						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="product_search" placeholder="Search">
+						<button type="submit" class="flex-c-m fs-16 cl2 hov-cl1 trans-04" style="background: none; border: none;">
 							<i class="zmdi zmdi-search"></i>
-						</button>
-
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
-					</div>	
+						</button>	
+					</form>
+					<h3 class="text-center">
+						{% if no_result %}
+						{{ no_result }}
+						{% endif %}
+					</h3>
 				</div>
+				
 
+				
 				<!-- Filter -->
 				<div class="dis-none panel-filter w-full p-t-10">
 					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
@@ -367,13 +382,14 @@
 					</div>
 				</div>
 				{% endfor %}
+			</div>
 
 			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45"> 
+			<div class="flex-c-m flex-w w-full p-t-45">
 				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Load More
 				</a>
-			</div> 
-	</div>
+			</div>
+		</div>
 		
 {% endblock %}
