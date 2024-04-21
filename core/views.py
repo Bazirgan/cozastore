@@ -1,13 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.models import  Blog, Contact, Product, Setting
+from core.models import  *
 from core.forms import ContactForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
 def index(request):
+    products=Product.objects.all()
+    context = {
+         'products':products
+     }
     
-    return render(request, 'index.html')
+    return render(request, 'index.html',context=context)
 
 
 def product(request):
@@ -32,6 +37,17 @@ def product(request):
         no_result = 'Product tapılmadı'
     else:
         no_result = None
+
+    items_per_page = 7
+    paginator = Paginator(products, items_per_page)
+    page = request.GET.get("page")
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
     context = {
         'products': products,
         'title': 'Product Page',
@@ -40,6 +56,14 @@ def product(request):
         'end_date': end_date,
     }
     return render(request, 'product.html', context=context)
+
+def product_single(request, id):
+    context = {
+        "title": "Product Single Page",
+        "product_single": Product.objects.get(id=id),
+        "products": Product.objects.all().order_by("created_at"),
+    }
+    return render(request, "product-detail.html", context=context)
 
 
 def shopingcart(request):
@@ -50,17 +74,32 @@ def shopingcart(request):
 
 def blog(request):
     blogs = Blog.objects.filter(is_active=True).order_by('-created_at')
+    products=Product.objects.all()
+    
+    items_per_page = 2
+    paginator = Paginator(blogs, items_per_page)
+    page = request.GET.get("page")
+
+    try:
+        blogs = paginator.page(page)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
+        
     context = {
         'title': Setting.objects.first().blog_title,
         'blogs': blogs, 
-        'blog_count': blogs.count()
+        'products': products,
     }
     return render(request, 'blog.html',context=context)
  
 def blog_details(request, blog_slug):
     blog = Blog.objects.get(slug=blog_slug)
+    products=Product.objects.all()
     context = {
         'title': blog.title,
+        'products': products,
         'blog': blog
     }
     return render(request, 'blog-detail.html', context=context)
@@ -106,3 +145,13 @@ def search(request):
         return render(request, 'search.html', context=context)
     
     return render (request,'search.html')
+
+def about(request):
+    about=About.objects.get(id=1)
+    
+    context = {
+        'about':about
+    }
+
+    return render(request, 'about.html',context=context)
+

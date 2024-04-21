@@ -52,6 +52,9 @@ class Product(BaseModel):
     like = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)  
     image = models.ImageField(upload_to='media/shop/')  
+    image2 = models.ImageField(upload_to='media/shop/') 
+    image3 = models.ImageField(upload_to='media/shop/') 
+    image_min = models.ImageField(upload_to='media/shop/') 
 
     class Meta:
         verbose_name= _("Protuct")
@@ -65,6 +68,7 @@ class Blog(BaseModel):
     slug = models.SlugField(max_length = 100, null = True, blank = True )
     title = models.CharField(max_length = 100)
     description = models.TextField()
+    description2 = models.TextField()
     image = models.ImageField(upload_to='media/blog/')
     
     class Meta:
@@ -123,5 +127,27 @@ class Setting(BaseModel):
    pinterest = models.URLField(null=True,blank=True)
    logo = models.ImageField(upload_to='media/logo/')
    blog_title = models.CharField(max_length = 100)
+   
+   
+class About(BaseModel):
+    image = models.ImageField(upload_to='media/about/')
+    image2 = models.ImageField(upload_to='media/about/')
+    name = models.CharField(max_length = 50)
+    name2 = models.CharField(max_length = 50)
+    description = models.TextField()
+    description2 = models.TextField()
+    description3 = models.TextField()
+    description4 = models.TextField()
+    aforithm = models.TextField()
+    author = models.CharField(max_length=50)
+    
+    
+    
+class Subscriber(BaseModel):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+    
    
 

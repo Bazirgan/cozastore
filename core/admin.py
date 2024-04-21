@@ -2,7 +2,7 @@ from django.contrib import admin
 from modeltranslation.translator import translator, TranslationOptions
 from modeltranslation.admin import TranslationAdmin
 from core.models import (
-    Category, Product, Color, Blog, Contact, ContactMail, Setting
+    Category, Product, Color, Blog, Contact, ContactMail, Setting, About,Subscriber
     
 )
 
@@ -19,7 +19,7 @@ class ProductAdmin(TranslationAdmin):
     readonly_fields = ('like',)
     fieldsets = (
         ('Main Information', {
-            'fields': ('name', 'price', 'category', 'color', 'size','image')
+            'fields': ('name', 'price', 'category', 'color', 'size','image','image2','image3','image_min')
         }),
         ('Main Information', {
             'fields': ('like', )
@@ -34,8 +34,13 @@ class BlogAdmin(TranslationAdmin):
     list_display = ('title', 'created_at')
     search_fields = ('title', 'description',)
     last_filter = ('created_at',)
-    fields = ('title', 'description' ,'slug','is_active', 'image' )
+    fields = ('title', 'description', 'description2','slug','is_active', 'image' )
     ordering = ('-created_at',)
     
 admin.site.register(Blog,BlogAdmin)
+
+admin.site.register(About)
+admin.site.register(Subscriber)
+
+
 

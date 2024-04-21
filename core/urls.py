@@ -1,6 +1,6 @@
 from django.urls import include, path
 from django.conf import settings
-from core.views import  index, product, shopingcart, blog, about, contact, blog_details, search
+from core.views import  index, product, shopingcart, blog, about, contact, blog_details, search,product_single
 
 
 urlpatterns = [
@@ -13,6 +13,7 @@ urlpatterns = [
     path('blog-detail/<str:blog_slug>/', blog_details, name='blog-detail'),
     path('', include('social_django.urls', namespace='social')),
     path('search/', search, name= 'search'),
+    path("product/<int:id>/", product_single, name="product_single"),
 ]
 
 

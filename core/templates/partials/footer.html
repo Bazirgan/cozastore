@@ -7,31 +7,31 @@
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Categories
+						Pages
 					</h4>
 
 					<ul>
+						<li class="p-b-10" >
+							<a href="{%url 'index' %}" class="stext-107 cl7 hov-cl1 trans-04">Home</a>
+						</li>
+
+						
+
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
+							<a href="{% url 'product' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Shop
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+							<a href="{% url 'blog' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Blog
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
+							<a href="{% url 'about' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								About
 							</a>
 						</li>
 					</ul>
@@ -43,29 +43,27 @@
 					</h4>
 
 					<ul>
+
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Track Order
+							<a href="{% url 'contact' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Any Question
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
+							<a href="{% url 'blog' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Innovations 
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
+							<a href="{% url 'product' %}" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoping
 							</a>
 						</li>
 
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								FAQs
-							</a>
-						</li>
+						
+						
 					</ul>
 				</div>
 
@@ -79,18 +77,19 @@
 					</p>
 
 					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="{{setting_data.facebook}}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-facebook"></i>
 						</a>
 				
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="{{setting_data.instagram}}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-instagram"></i>
 						</a>
 				
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="{{setting_data.pinterest}}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-pinterest-p"></i>
 						</a>
 					</div>
+					
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -98,9 +97,11 @@
 						Newsletter
 					</h4>
 
-					<form>
+					<form method='post'>
+						{% csrf_token %}
 						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							{% comment %} <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com"> {% endcomment %}
+							{{subscriber_form.email}}
 							<div class="focus-input1 trans-04"></div>
 						</div>
 
@@ -138,7 +139,7 @@
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | &amp; developed by <a href="" target="_blank">BazirganMuradov</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
